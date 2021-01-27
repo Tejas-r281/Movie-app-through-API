@@ -16,20 +16,16 @@ const Result= async()=>{
         console.log(" May some problem with your programme");
     }
 }
-var control=1;
+//  var controls=true;
+
 
 const getresult= Result();
   getresult.then((e)=>{
-    //   console.log(e);
+ 
     e.results.forEach(element => {
         const path=(element.backdrop_path);
         const realpath= IMGPATH+path;
-        // console.log(realpath);
-        // const image_div= document.createElement('img');
-        // image_div.setAttribute('class','img_class');
-        //  image_div.src=realpath;
-        //  image_div.alt="sorry image can not available at this time"
-        //  console.log(image_div);
+        
         const inside =document.createElement('div');
         inside.setAttribute('class','inside');
         const html=`
@@ -40,35 +36,42 @@ const getresult= Result();
         </div>`
         inside.innerHTML=html;
           store.insertAdjacentElement('beforeend',inside);
-        //   console.log("raushan kumar");
+         var control= true;
         const image= document.querySelectorAll('.image');
-        if(control)
-        {
+        console.log("outer");
         image.forEach(element => {
+                console.log(control);
               element.addEventListener('click',(e)=>{
-                const X= e.clientX;
-                const Y= e.clientY+window.scrollY;
-                console.log(`${X} ${Y}`);
+            //   controls=true;
+                const X= e.offsetX;
+                const Y=e.offsetY;
+                // console.log(`${X} ${Y}`);
                 const ripple= document.createElement('span');
-                ripple.setAttribute('class','ripple');
+                // controls=false;
+                // console.log(inside.contains('span'));
+                const fre= document.querySelector('.ripple')
+                if(fre==null)
+                inside.appendChild(ripple);
+                
                 ripple.style.left=X +"px";
                 ripple.style.top=Y +"px";
-                store.appendChild(ripple);
-                // store.style.position="relative";
                 
+                ripple.setAttribute('class','ripple');
                 setTimeout(() => {
                     ripple.remove();
                 }, 1000);
-                console.log("raushan");
-                // console.log(window.scrollY);
+                // control=false;
+                //  console.log("inside");
+                //  console.log(control);
+                //  controls=true;
+            
+              
             })
-            // console.log("rahul");
+        // console.log("outer");
         });
-        control =control+1;
-        // console.log(control);
-    }
-
+        // control =control+1;
     });
+    
   })
   
 

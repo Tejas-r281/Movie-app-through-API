@@ -4,10 +4,14 @@
     box-sizing: border-box;
     /* overflow: hidden; */
 }
+body{
+    /* overflow: hidden; */
+}
 .container{
     /* background-color: red; */
     width: 100%;
     height: 100%;
+    /* overflow: hidden; */
 }
 .heading{
     text-align: center;
@@ -96,3 +100,82 @@ img{
         /* background-color: red; */
     }
 }
+.upper{
+    background-color: black;
+    height:100%;
+    width: 100%;
+    position: absolute;
+    /* z-index: 4; */
+    /* top: 0; */
+    /* opacity: .8; */
+    display: flex;
+    justify-content: center;
+    /* top: 20px; */
+    /* opacity: 0; */
+    /* pointer-events: none; */
+    overflow: auto;
+}
+.details{
+    height: 95%;
+    width: 400px;
+    background-color: white;
+    margin: 20px;
+    padding:  10px;
+    border-radius: 10px;
+    /* overflow: auto; */
+    overflow-x: auto;
+     position: relative;
+}
+
+
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+.cross{
+    color: red;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    /* top: 20px; */
+    /* right:19%; */
+    top: 20px;
+    right: 100px;
+}
+/* .btn{
+    position: relative;
+    background-color: red;
+    width: 100%;
+    height: 20px; */
+.overview{
+    color: green;
+    font-size: 1.5rem;
+    position: relative;
+}
+.overview::after{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 3px;
+    color: red;
+    /* background-color: red; */
+    bottom: 0;
+    left: 0;
+    /* border-radius: 5px; */
+    /* z-index: 51; */
+    animation: overviews 2s linear infinite alternate-reverse;
+}
+
+@keyframes overviews{
+    0%{
+        width: 150px;
+        background-color: white;
+    }
+    100%{
+        width: 150px;
+        background-color: green;
+        
+    }
+}
+
